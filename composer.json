@@ -1,0 +1,15 @@
+{
+    "name": "lomidze/crud",
+    "autoload": {
+        "psr-4": {
+            "app\\": "./"
+        }
+    },
+    "authors": [
+        {
+            "name": "Levan Lomidze",
+            "email": "levan.lomo@gmail.com"
+        }
+    ],
+    "require": {}
+}
