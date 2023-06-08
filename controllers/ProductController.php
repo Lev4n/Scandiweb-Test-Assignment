@@ -54,7 +54,7 @@ class ProductController
     {
         $errors = [];
         if (!$_POST['checkedProducts']) {
-            $errors = "Please select at least one prodyct!";
+            $errors = "Please select at least one product!";
             header('Location: /');
         } else {
             for ($i = 0; $i < count($_POST['checkedProducts']); $i++) {
