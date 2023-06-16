@@ -8,8 +8,8 @@
 
         <div class="collapse navbar-collapse justify-content-md-end" id="navbarNav">
             <div class="d-grid gap-2 d-md-flex">
-                <input form="product_form" type="submit" name="save" value="SAVE" class="btn btn-outline-success">
-                <a href="index" type="submit" value="CANCEL" class="btn btn-outline-danger">CANCEL</a>
+                <button form="product_form" type="submit" name="save" value="SAVE" class="btn btn-outline-success">SAVE</button>
+                <a href="/" type="submit" value="CANCEL" class="btn btn-outline-danger">CANCEL</a>
             </div>
         </div>
     </div>
@@ -39,7 +39,7 @@
         <div id="price" class="row mb-5 col-md-4">
             <label for="price" class="col-3 col-form-label">Price ($)</label>
             <div class="col-sm-9">
-                <input type="number" class="form-control" name="price" value="<?php echo $_POST['price'] ?? '' ?>">
+                <input type="number" step=".01" class="form-control" name="price" value="<?php echo $_POST['price'] ?? '' ?>">
             </div>
         </div>
         <div class="row mb-4 col-md-4">
@@ -58,7 +58,7 @@
                 <div id="size" class="row mb-4 col-md-4">
                     <label for="size" class="col-6 col-form-label">Size (MB)</label>
                     <div class="col-sm-6">
-                        <input type="number" class="form-control" name="size" value="<?php echo $_POST['size'] ?? '' ?>">
+                        <input type="number" step=".01" class="form-control" name="size" value="<?php echo $_POST['size'] ?? '' ?>">
                     </div>
                 </div>
                 <p><strong>Please, provide disc space in MB.</strong></p>
@@ -67,19 +67,19 @@
                 <div id="height" class="row mb-4 col-md-4">
                     <label for="height" class="col-6 col-form-label">Height(CM)</label>
                     <div class="col-sm-6">
-                        <input type="number" class="form-control" name="height" value="<?php echo $_POST['height'] ?? '' ?>">
+                        <input type="number" step=".01" class="form-control" name="height" value="<?php echo $_POST['height'] ?? '' ?>">
                     </div>
                 </div>
                 <div id="width" class="row mb-4 col-md-4">
                     <label for="width" class="col-6 col-form-label">Width(CM)</label>
                     <div class="col-sm-6">
-                        <input type="number" class="form-control" name="width" value="<?php echo $_POST['width'] ?? '' ?>">
+                        <input type="number" step=".01" class="form-control" name="width" value="<?php echo $_POST['width'] ?? '' ?>">
                     </div>
                 </div>
                 <div id="length" class="row mb-4 col-md-4">
                     <label for="length" class="col-6 col-form-label">Length(CM)</label>
                     <div class="col-sm-6">
-                        <input type="number" class="form-control" name="length" value="<?php echo $_POST['length'] ?? '' ?>">
+                        <input type="number" step=".01" class="form-control" name="length" value="<?php echo $_POST['length'] ?? '' ?>">
                     </div>
                 </div>
                 <p><strong>Please, provide dimensions in HxWxL format.</strong></p>
@@ -88,7 +88,7 @@
                 <div id="weight" class="row mb-4 col-md-4">
                     <label for="weight" class="col-6 col-form-label">Weight (KG)</label>
                     <div class="col-sm-6">
-                        <input type="text" class="form-control" name="weight" value="<?php echo $_POST['weight'] ?? '' ?>">
+                        <input type="number" step=".01" class="form-control" name="weight" value="<?php echo $_POST['weight'] ?? '' ?>">
                     </div>
                 </div>
                 <p><strong>Please, provide weight in KG.</strong></p>

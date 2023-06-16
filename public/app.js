@@ -1,33 +1,46 @@
 if (/create/.test(window.location.href)) {
-  $("#DVD").hide();
-  $("#Furniture").hide();
-  $("#Book").hide();
+  $(document).ready(function() {
+    let productType = localStorage.getItem("productType");
+
+    if ($("#DVD").is(":visible") && productType !== "DVD") {
+      $("#DVD").hide();
+    }
+
+    if ($("#Furniture").is(":visible") && productType !== "Furniture") {
+      $("#Furniture").hide();
+    }
+
+    if ($("#Book").is(":visible") && productType !== "Book") {
+      $("#Book").hide();
+    }
+
+    if ($("#productType").length && productType) {
+      $("#productType").val(productType);
+    }
+  });
+
+  let selectedProduct = sessionStorage.getItem("selectedProduct");
+
+  if (selectedProduct) {
+    sessionStorage.setItem("selectedProduct", selectedProduct);
+  }
 
   let productType = localStorage.getItem("productType");
 
-  if (productType === productType) {
-    $(`.${productType}`).show();
+  if (productType === null) {
+    localStorage.setItem("productType", "typeSwitcher");
+    productType = "typeSwitcher"; // Set the default value
   }
-  $("#productType").on("change", function (event) {
-    localStorage.setItem("productType", $(this).val());
 
-    if (event.target.value === "DVD") {
-      $("#DVD").show();
-      $("#Furniture").hide();
-      $("#Book").hide();
-    } else if (event.target.value === "Furniture") {
-      $("#DVD").hide();
-      $("#Furniture").show();
-      $("#Book").hide();
-    } else if (event.target.value === "Book") {
-      $("#DVD").hide();
-      $("#Furniture").hide();
-      $("#Book").show();
-    } else {
-      $("#DVD").hide();
-      $("#Furniture").hide();
-      $("#Book").hide();
-    }
+  $(`.${productType}`).show();
+
+  $("#productType").on("change", function(event) {
+    let selectedValue = $(this).val();
+    localStorage.setItem("productType", selectedValue);
+
+    $("#DVD").toggle(selectedValue === "DVD");
+    $("#Furniture").toggle(selectedValue === "Furniture");
+    $("#Book").toggle(selectedValue === "Book");
   });
 } else {
   localStorage.removeItem("productType");
