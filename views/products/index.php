@@ -7,16 +7,16 @@
         </button>
 
         <div class="collapse navbar-collapse justify-content-md-end" id="navbarNav">
-            <div class="d-grid gap-2 d-md-flex">
-                <a href="/products/create" type="button" class="btn btn-outline-success">ADD</a>
+            <div class="d-grid gap-3 d-md-flex">
+                <a href='./create'><button class="btn btn-outline-success">ADD</button></a>
                 <button type="submit" name="delete" value="Delete" class="btn btn-outline-danger" form="product_form">MASS DELETE</button>
             </div>
         </div>
     </div>
 </nav>
-
+    
 <hr>
-<form action="/products/delete" method="POST" id="product_form">
+<form action="/delete" method="POST" id="product_form">
     <div class="row d-flex">
         <div class="row justify-content-center align-items-center">
             <?php foreach ($products as $product) { ?>
@@ -24,7 +24,7 @@
                 <div class="card border-secondary m-3 text-center shadow bg-body-tertiary rounded">
                     <div class="card-body">
                         <div class="form-check">
-                            <input type="checkbox" name="checkedProducts[]" class="delete-checkbox form-check-input" value="<?php echo $product['id'] ?>">
+                            <input type="checkbox" name="checkedProducts[]" class="delete-checkbox form-check-input" value="<?php echo $product['id'] ?>" />
                         </div>
                         <p id="sku"><?php echo $product['sku'] ?></p>
                         <p id="name"><?php echo $product['name'] ?></p>

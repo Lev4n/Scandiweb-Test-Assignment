@@ -27,7 +27,7 @@ class ProductController
                 $productData[$key] = $value;
             }
 
-            $providedProduct = "app\\models\\productTypes\\".$_POST['productType'];
+            $providedProduct = "app\\models\\productTypes\\" . $_POST['productType'];
 
             if (class_exists($providedProduct)) {
                 $product = new $providedProduct($productData);
@@ -50,18 +50,18 @@ class ProductController
         ]);
     }
 
-    public static function delete(Router $router)
+    public static function delete()
     {
-        $errors = [];
-        if (!$_POST['checkedProducts']) {
-            $errors = "Please select at least one product!";
-            header('Location: /');
-        } else {
-            for ($i = 0; $i < count($_POST['checkedProducts']); $i++) {
-                $db = new Database();
-                $db->delete();
-            }
-            header('Location: /');
+    if (isset($_POST['checkedProducts'])) {
+        $checkedProducts = $_POST['checkedProducts'];
+
+        foreach ($checkedProducts as $productId) {
+            $db = new Database();
+            $db->delete($productId);
         }
     }
+    
+    header('Location: /');
+    }
+
 }

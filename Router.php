@@ -5,6 +5,7 @@ namespace app;
 class Router
 {
     public $getRoutes = [];
+    
     public $postRoutes = [];
 
     public $database = null;

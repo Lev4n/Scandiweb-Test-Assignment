@@ -70,7 +70,7 @@ abstract class Product
     {
         if (!$this->data['price']) {
             return "Product price is required!";
-        } else if ($this->data['price'] <= 0) {
+        } else if ($this->data['price'] < 0) {
             return "Please provide correct price";
         } else {
             $this->price = floatval($this->data['price']);

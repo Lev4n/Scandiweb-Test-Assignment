@@ -8,8 +8,8 @@
 
         <div class="collapse navbar-collapse justify-content-md-end" id="navbarNav">
             <div class="d-grid gap-2 d-md-flex">
-                <button form="product_form" type="submit" name="save" value="SAVE" class="btn btn-outline-success">SAVE</button>
-                <a href="/" type="submit" value="CANCEL" class="btn btn-outline-danger">CANCEL</a>
+                <button form="product_form" type="submit" name="Save" value="Save" class="btn btn-outline-success">Save</button>
+                <a href="/" type="submit" value="Cancel" class="btn btn-outline-danger">Cancel</a>
             </div>
         </div>
     </div>
@@ -24,22 +24,22 @@
 <?php endif; ?>
 <form action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]); ?>" id="product_form" method="post">
     <div class="mt-5">
-        <div id="sku" class="row mb-3 col-md-4">
-            <label for="sku" class="col-3 col-form-label">SKU</label>
+        <div id="sku-container" class="row mb-3 col-md-4">
+            <label for="sku-container" class="col-3 col-form-label">SKU</label>
             <div class="col-sm-9">
-                <input type="text" class="form-control" name="sku" value="<?php echo $_POST['sku'] ?? '' ?>">
+                <input type="text" class="form-control" id="sku" name="sku" value="<?php echo $_POST['sku'] ?? '' ?>" />
             </div>
         </div>
-        <div id="name" class="row mb-3 col-md-4">
-            <label for="name" class="col-3 col-form-label">Name</label>
+        <div id="name-container" class="row mb-3 col-md-4">
+            <label for="name-container" class="col-3 col-form-label">Name</label>
             <div class="col-sm-9">
-                <input type="text" class="form-control" name="name" value="<?php echo $_POST['name'] ?? '' ?>" />
+                <input type="text" class="form-control" id="name" name="name" value="<?php echo $_POST['name'] ?? '' ?>" />
             </div>
         </div>
-        <div id="price" class="row mb-5 col-md-4">
-            <label for="price" class="col-3 col-form-label">Price ($)</label>
+        <div id="price-container" class="row mb-5 col-md-4">
+            <label for="price-container" class="col-3 col-form-label">Price ($)</label>
             <div class="col-sm-9">
-                <input type="number" step=".01" class="form-control" name="price" value="<?php echo $_POST['price'] ?? '' ?>">
+                <input type="number" step=".01" class="form-control" id="price" name="price" value="<?php echo $_POST['price'] ?? '' ?>" />
             </div>
         </div>
         <div class="row mb-4 col-md-4">
@@ -53,47 +53,45 @@
                 </select>
             </div>
         </div>
-        <div class="productContainer">
             <div id="DVD">
-                <div id="size" class="row mb-4 col-md-4">
-                    <label for="size" class="col-6 col-form-label">Size (MB)</label>
+                <div id="size-container" class="row mb-4 col-md-4">
+                    <label for="size-container" class="col-6 col-form-label">Size (MB)</label>
                     <div class="col-sm-6">
-                        <input type="number" step=".01" class="form-control" name="size" value="<?php echo $_POST['size'] ?? '' ?>">
+                        <input type="number" step=".01" class="form-control" id="size" name="size" value="<?php echo $_POST['size'] ?? '' ?>" />
                     </div>
                 </div>
                 <p><strong>Please, provide disc space in MB.</strong></p>
             </div>
             <div id="Furniture">
-                <div id="height" class="row mb-4 col-md-4">
-                    <label for="height" class="col-6 col-form-label">Height(CM)</label>
+                <div id="height-container" class="row mb-4 col-md-4">
+                    <label for="height-container" class="col-6 col-form-label">Height(CM)</label>
                     <div class="col-sm-6">
-                        <input type="number" step=".01" class="form-control" name="height" value="<?php echo $_POST['height'] ?? '' ?>">
+                        <input type="number" step=".01" class="form-control" id="height" name="height" value="<?php echo $_POST['height'] ?? '' ?>" />
                     </div>
                 </div>
-                <div id="width" class="row mb-4 col-md-4">
-                    <label for="width" class="col-6 col-form-label">Width(CM)</label>
+                <div id="width-container" class="row mb-4 col-md-4">
+                    <label for="width-container" class="col-6 col-form-label">Width(CM)</label>
                     <div class="col-sm-6">
-                        <input type="number" step=".01" class="form-control" name="width" value="<?php echo $_POST['width'] ?? '' ?>">
+                        <input type="number" step=".01" class="form-control" id="width" name="width" value="<?php echo $_POST['width'] ?? '' ?>" />
                     </div>
                 </div>
-                <div id="length" class="row mb-4 col-md-4">
-                    <label for="length" class="col-6 col-form-label">Length(CM)</label>
+                <div id="length-container" class="row mb-4 col-md-4">
+                    <label for="length-container" class="col-6 col-form-label">Length(CM)</label>
                     <div class="col-sm-6">
-                        <input type="number" step=".01" class="form-control" name="length" value="<?php echo $_POST['length'] ?? '' ?>">
+                        <input type="number" step=".01" class="form-control" id="length" name="length" value="<?php echo $_POST['length'] ?? '' ?>" />
                     </div>
                 </div>
                 <p><strong>Please, provide dimensions in HxWxL format.</strong></p>
             </div>
             <div id="Book">
-                <div id="weight" class="row mb-4 col-md-4">
-                    <label for="weight" class="col-6 col-form-label">Weight (KG)</label>
+                <div id="weight-container" class="row mb-4 col-md-4">
+                    <label for="weight-container" class="col-6 col-form-label">Weight (KG)</label>
                     <div class="col-sm-6">
-                        <input type="number" step=".01" class="form-control" name="weight" value="<?php echo $_POST['weight'] ?? '' ?>">
+                        <input type="number" step=".01" class="form-control" id="weight" name="weight" value="<?php echo $_POST['weight'] ?? '' ?>" />
                     </div>
                 </div>
                 <p><strong>Please, provide weight in KG.</strong></p>
             </div>
-        </div>
     </div>
 </form>
 

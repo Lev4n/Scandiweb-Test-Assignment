@@ -1,47 +1,46 @@
 if (/create/.test(window.location.href)) {
-  $(document).ready(function() {
-    let productType = localStorage.getItem("productType");
+  $("#DVD").hide();
+  $("#Furniture").hide();
+  $("#Book").hide();
 
-    if ($("#DVD").is(":visible") && productType !== "DVD") {
-      $("#DVD").hide();
-    }
-
-    if ($("#Furniture").is(":visible") && productType !== "Furniture") {
-      $("#Furniture").hide();
-    }
-
-    if ($("#Book").is(":visible") && productType !== "Book") {
-      $("#Book").hide();
-    }
-
-    if ($("#productType").length && productType) {
-      $("#productType").val(productType);
-    }
+  $(document).ready(function () {
+      if ($('#productType').length) {
+          $('#productType').val(localStorage.getItem("productType"));
+      }
   });
-
-  let selectedProduct = sessionStorage.getItem("selectedProduct");
-
-  if (selectedProduct) {
-    sessionStorage.setItem("selectedProduct", selectedProduct);
-  }
 
   let productType = localStorage.getItem("productType");
 
   if (productType === null) {
-    localStorage.setItem("productType", "typeSwitcher");
-    productType = "typeSwitcher"; // Set the default value
+      localStorage.setItem("productType", 'typeSwitcher');
   }
 
-  $(`.${productType}`).show();
+  
+  $('#productType').on('change', function (event) {
+      localStorage.setItem("productType", $(this).val());
 
-  $("#productType").on("change", function(event) {
-    let selectedValue = $(this).val();
-    localStorage.setItem("productType", selectedValue);
+      if (event.target.value === 'DVD') {
+          $("#DVD").show();
+          $("#Furniture").hide();
+          $("#Book").hide();
+      } else if (event.target.value === 'Furniture') {
+          $("#DVD").hide();
+          $("#Furniture").show();
+          $("#Book").hide();
+      } else if (event.target.value === 'Book') {
+          $("#DVD").hide();
+          $("#Furniture").hide();
+          $("#Book").show();
+      } else {
+          $("#DVD").hide();
+          $("#Furniture").hide();
+          $("#Book").hide();
+      }
 
-    $("#DVD").toggle(selectedValue === "DVD");
-    $("#Furniture").toggle(selectedValue === "Furniture");
-    $("#Book").toggle(selectedValue === "Book");
   });
+
+
 } else {
   localStorage.removeItem("productType");
 }
+

@@ -1,13 +1,12 @@
-body{
+body {
     padding: 0 25px;
-    margin: 10px 0;
+    margin-top: 5px;
     min-height: 100vh;
     display: flex;
     flex-direction: column;
+    overflow: auto;
 }
-.btn{
-    margin: 5px;
-}
+
 
 footer{
     margin-top: auto;
