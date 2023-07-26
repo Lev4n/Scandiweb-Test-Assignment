@@ -49,8 +49,8 @@ abstract class Product
             $this->sku = $this->data['sku'];
         }
 
-        $db = new Database();
-        if ($db->getSKU($this->data['sku'])) {
+        $database = new Database();
+        if ($database->getSKU($this->data['sku'])) {
             return "SKU already exists";
         }
     }

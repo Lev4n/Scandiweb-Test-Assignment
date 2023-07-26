@@ -5,15 +5,7 @@ namespace app;
 class Router
 {
     public $getRoutes = [];
-    
     public $postRoutes = [];
-
-    public $database = null;
-
-    public function __construct(Database $database)
-    {
-        $this->database = $database;
-    }
 
     public function get($url, $fn)
     {
@@ -39,7 +31,7 @@ class Router
             echo 'Page not found!';
             exit;
         }
-        call_user_func($fn, $this);
+        echo call_user_func($fn, $this);
     }
 
     public function renderView($view, $params = [])

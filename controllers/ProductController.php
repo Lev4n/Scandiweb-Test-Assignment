@@ -10,9 +10,9 @@ class ProductController
 {
     public static function index(Router $router)
     {
-        $products = $router->database->getProducts();
+        $database = new Database();
         $router->renderView('index', [
-            'products' => $products
+            'products' => $database->getProducts()
         ]);
     }
 
@@ -52,16 +52,12 @@ class ProductController
 
     public static function delete()
     {
-    if (isset($_POST['checkedProducts'])) {
-        $checkedProducts = $_POST['checkedProducts'];
-
-        foreach ($checkedProducts as $productId) {
-            $db = new Database();
-            $db->delete($productId);
+        if ($_POST) {
+            for ($i = 0; $i < count($_POST['checkedProducts']); $i++) {
+                $database = new Database();
+                $database->delete();
+            }
         }
+        header('Location: /');
     }
-    
-    header('Location: /');
-    }
-
 }
