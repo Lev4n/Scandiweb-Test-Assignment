@@ -52,12 +52,16 @@ class ProductController
 
     public static function delete()
     {
-        if ($_POST) {
-            for ($i = 0; $i < count($_POST['checkedProducts']); $i++) {
-                $database = new Database();
-                $database->delete();
-            }
-        }
+    if (isset($_POST['checkedProducts'])) {
+        $checkedProducts = $_POST['checkedProducts'];
+
+        foreach ($checkedProducts as $productId) {
+            $database = new Database();
+            $database->delete();
+                }
         header('Location: /');
+    }
+
+    header('Location: /');
     }
 }
